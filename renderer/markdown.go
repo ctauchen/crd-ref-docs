@@ -158,7 +158,8 @@ func (m *MarkdownRenderer) RenderFieldDoc(text string) string {
 	out = strings.ReplaceAll(out, "}", "\\}")
 
 	// Replace newlines with 1 line break so that they don't break the Markdown table formatting.
-	out = strings.ReplaceAll(out, "\n", "<br />")
+	out = strings.ReplaceAll(out, "\n\n", "<br />")
+	out = strings.ReplaceAll(out, "\n", " ")
 	// and remove double newline generated for empty lines
 	// empty line is still rendered in the table, without removing the duplicate
 	// newline it would be rendered as two empty lines
